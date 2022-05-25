@@ -35,11 +35,11 @@ body {
 }
 
 
-header {
+h1 {
     padding-left: 15px;
 }
 
-.grid-container {
+.card {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
