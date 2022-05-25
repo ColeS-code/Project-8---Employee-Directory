@@ -1,6 +1,31 @@
 
+@import url("https://fonts.googleapis.com/css?family=Nunito|Roboto+Mono");
+
+/* Base Styles */
+
 body {
     position: relative;
+    background-color: gainsboro;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+input,
+button {
+  font-family: "Nunito", sans-serif;
+}
+
+h1 {
+    color: #778;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.wrapper {
+    padding: 32px;
 }
 
 .overlay {
@@ -34,13 +59,20 @@ body {
     display: none;
 }
 
-
-h1 {
-    padding-left: 15px;
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
 }
+
+/* Employee Cards */
 
 .card {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    background-color: aliceblue;
+    border: solid 1px black;
+    border-radius: 3px;
+    padding: 1rem;
+    flex: 1 1 30%;
+    align-items: center;   
 }
