@@ -59,7 +59,7 @@ function displayModal(index)  {
       <p class="address">${street}, ${state}, ${postcode}</p>
       <p>Birthday:${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
     </div> 
-  `;
+  `
   overlay.classList.remove("hidden");
   modalContainer.innerHTML = modalHTML;
 }
