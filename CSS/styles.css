@@ -91,4 +91,6 @@ h1 {
     width: 150px;
 }
 
-
+.hidden {
+    display: none;
+}
