@@ -8,13 +8,16 @@ const overlay = document.querySelector(".overlay");
 const modalContainer = document.querySelector(".modal-content");
 const modalClose = document.querySelector(".modal-close");
 
-
-// fetch data from API
-fetch(urlAPI)
-    .then(res => res.json())
-    .then(res => res.results)
-    .then(displayEmployees)
-    .catch(err => console.log(err))
+const header = document.querySelector(".header")
+const createSearchBar = `
+  <label for="search" class="employee-search">
+    <span>Search By Name</span>
+    <input id="search" placeholder="Search By Name">
+    <button type="button">search</button>
+  </label>
+`
+header.insertAdjacentHTML("beforeend", createSearchBar);
+const searchSelector = document.querySelector("#search");
 
 
 function displayEmployees(employeeData) {
@@ -80,7 +83,12 @@ modalClose.addEventListener('click', () => {
 });
 
 
-
+// fetch data from API
+fetch(urlAPI)
+    .then(res => res.json())
+    .then(res => res.results)
+    .then(displayEmployees)
+    .catch(err => console.log(err))
 
 
 
