@@ -19,6 +19,15 @@ const createSearchBar = `
 header.insertAdjacentHTML("beforeend", createSearchBar);
 const searchSelector = document.querySelector("#search");
 
+const searchNames = () => {
+  const employeeNames = employees.filter((employee) => {
+    let fullName = `${employee.name.first} ${employee.name.last}`
+    return fullName.includes(searchSelector.value.toLowerCase())
+
+  }
+
+}
+
 
 function displayEmployees(employeeData) {
     employees = employeeData;
@@ -60,7 +69,7 @@ function displayModal(index)  {
       <hr />
       <p>${phone}</p>
       <p class="address">${street.number} ${street.name}, ${city}, ${state}, ${postcode}</p>
-      <p>Birthday:${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
+      <p>Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
     </div> 
   `
   overlay.classList.remove("hidden");
