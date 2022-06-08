@@ -7,6 +7,9 @@ const gridContainer = document.querySelector(".grid-container");
 const overlay = document.querySelector(".overlay");
 const modalContainer = document.querySelector(".modal-content");
 const modalClose = document.querySelector(".modal-close");
+const modalPrevious = document.querySelector("modal-previous");
+const modalNext = document.querySelector("modal-next");
+
 
 const header = document.querySelector(".header")
 const createSearchBar = `
@@ -26,6 +29,10 @@ const searchNames = () => {
   })
   displayEmployees(employeeNames)
 };
+
+searchSelector.addEventListener("keyup", () => {
+  searchNames()
+});
 
 
 function displayEmployees(employeeData) {
@@ -55,6 +62,7 @@ function displayEmployees(employeeData) {
 
 function displayModal(index)  {
 
+ 
   let { name, dob, phone, email, location: { city, street, state, postcode,}, picture} = employees[index];
 
   let date = new Date(dob.date);
@@ -89,6 +97,13 @@ gridContainer.addEventListener('click', event => {
 modalClose.addEventListener('click', () => {
   overlay.classList.add("hidden");
 });
+
+
+
+
+
+
+
 
 
 // fetch data from API
