@@ -22,11 +22,10 @@ const searchSelector = document.querySelector("#search");
 const searchNames = () => {
   const employeeNames = employees.filter((employee) => {
     let fullName = `${employee.name.first} ${employee.name.last}`
-    return fullName.includes(searchSelector.value.toLowerCase())
-
-  }
-
-}
+    return fullName.toLowerCase().includes(searchSelector.value.toLowerCase())
+  })
+  displayEmployees(employeeNames)
+};
 
 
 function displayEmployees(employeeData) {
