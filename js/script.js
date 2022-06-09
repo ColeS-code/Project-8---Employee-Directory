@@ -99,6 +99,10 @@ modalClose.addEventListener('click', () => {
 });
 
 
+modalNext.addEventListener("click", () => {
+  const nextCard = parseInt(modalContainer.getAttribute(index))
+  displayModal(nextCard + 1)
+});
 
 
 
