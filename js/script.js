@@ -86,7 +86,7 @@ function displayModal(index)  {
   overlay.classList.remove("hidden");
   modalContainer.innerHTML = modalHTML;
 };
-// a piece of code to prevent the modal from displaying if the user clicks on anything but the closest card to their cursor.
+// A piece of code to prevent the modal from displaying if the user clicks on anything but the closest card to their cursor.
 gridContainer.addEventListener('click', event => {
 
   if (event.target !== gridContainer) {
@@ -101,6 +101,7 @@ gridContainer.addEventListener('click', event => {
 modalClose.addEventListener('click', () => {
   overlay.classList.add("hidden");
 });
+
 
 modalNext.addEventListener("click", () => {
   const currentModal = //////////
