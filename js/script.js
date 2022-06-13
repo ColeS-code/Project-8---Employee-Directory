@@ -11,6 +11,7 @@ const modalPrevious = document.querySelector("modal-previous");
 const modalNext = document.querySelector("modal-next");
 
 
+// Creates a search bar using template literals to insert the inner HTMl.
 const header = document.querySelector(".header")
 const createSearchBar = `
   <label for="search" class="employee-search">
@@ -22,6 +23,8 @@ const createSearchBar = `
 header.insertAdjacentHTML("beforeend", createSearchBar);
 const searchSelector = document.querySelector("#search");
 
+
+// Adds functionality to the search bar. Allowing the user to filter employees with their first and last name.
 const searchNames = () => {
   const employeeNames = employees.filter((employee) => {
     let fullName = `${employee.name.first} ${employee.name.last}`
@@ -29,23 +32,24 @@ const searchNames = () => {
   })
   displayEmployees(employeeNames)
 };
-
+// Performs the search in real-time.
 searchSelector.addEventListener("keyup", () => {
   searchNames()
 });
 
-
+// This function takes the fetched employee data to hold and insert it into the inner HTML.
 function displayEmployees(employeeData) {
+
     employees = employeeData;
-        // store the employee HTML as we create it
+        
      let employeeHTML = '';
-        // loop through each employee and create HTML markup
+        
         employees.forEach((employee, index) => {
          let name = employee.name;
          let email = employee.email;
          let city = employee.location.city;
          let picture = employee.picture;
-        // template literals make this so much cleaner!
+        
         employeeHTML += `
         <div class="card" data-index="${index}">
          <img class="avatar" src="${picture.large}" />
@@ -58,11 +62,11 @@ function displayEmployees(employeeData) {
         `
         });
         gridContainer.innerHTML = employeeHTML;
-}
+};
 
+// This function creates a modal pop-up with more detailed information on each employee. 
 function displayModal(index)  {
 
- 
   let { name, dob, phone, email, location: { city, street, state, postcode,}, picture} = employees[index];
 
   let date = new Date(dob.date);
@@ -81,8 +85,8 @@ function displayModal(index)  {
   `
   overlay.classList.remove("hidden");
   modalContainer.innerHTML = modalHTML;
-}
-
+};
+// a piece of code to prevent the modal from displaying if the user clicks on anything but the closest card to their cursor.
 gridContainer.addEventListener('click', event => {
 
   if (event.target !== gridContainer) {
@@ -93,11 +97,14 @@ gridContainer.addEventListener('click', event => {
     displayModal(index);
   }
 });
-
+// listens for a click to close the modal pop-up window.
 modalClose.addEventListener('click', () => {
   overlay.classList.add("hidden");
 });
 
+modalNext.addEventListener("click", () => {
+  const currentModal = //////////
+});
 
 
 // fetch data from API
