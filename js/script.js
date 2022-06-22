@@ -103,11 +103,6 @@ modalClose.addEventListener('click', () => {
 });
 
 
-modalNext.addEventListener("click", () => {
-  const currentModal = //////////
-});
-
-
 // fetch data from API
 fetch(urlAPI)
     .then(res => res.json())
