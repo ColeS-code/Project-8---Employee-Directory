@@ -7,8 +7,8 @@ const gridContainer = document.querySelector(".grid-container");
 const overlay = document.querySelector(".overlay");
 const modalContainer = document.querySelector(".modal-content");
 const modalClose = document.querySelector(".modal-close");
-const modalPrevious = document.querySelector("modal-previous");
-const modalNext = document.querySelector("modal-next");
+const modalPrevious = document.querySelector(".modal-previous");
+const modalNext = document.querySelector(".modal-next");
 
 
 // Creates a search bar using template literals to insert the inner HTMl.
@@ -67,6 +67,18 @@ function displayEmployees(employeeData) {
 // This function creates a modal pop-up with more detailed information on each employee. 
 function displayModal(index)  {
 
+  modalNext.disabled = false;
+  modalPrevious.disabled = false;
+
+  if (index === 0) {
+    modalPrevious.disabled = true;
+  }
+  if (index === employees.length - 1) {
+    modalNext.disabled = true;
+  }
+
+  modalContainer.setAttribute("data-index", index);
+
   let { name, dob, phone, email, location: { city, street, state, postcode,}, picture} = employees[index];
 
   let date = new Date(dob.date);
@@ -101,6 +113,17 @@ gridContainer.addEventListener('click', event => {
 modalClose.addEventListener('click', () => {
   overlay.classList.add("hidden");
 });
+
+// Listens for a button click to loop through the modal cards, adding or subtracting one from the index.
+modalNext.addEventListener('click', () => {
+  const currentModal = parseInt(modalContainer.getAttribute("data-index"))
+  displayModal(currentModal + 1)
+})
+
+modalPrevious.addEventListener('click', () => {
+  const currentModal = parseInt(modalContainer.getAttribute("data-index"))
+  displayModal(currentModal - 1)
+})
 
 
 // fetch data from API
